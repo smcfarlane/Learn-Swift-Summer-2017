@@ -15,6 +15,10 @@ class RegisterScene: UIController, SuccessionOfImagesDelagate, FancyBoolDelegate
   var acceptCtrl: FancyBoolControl? = nil
   var cameraCtrl: CameraControl?
   var avatarControl: CircleAvatarControl?
+  let phoneForm = UIView()
+  var phoneCtrl: CollectPhoneNumberControl?
+  var avatarImage: UIImage?
+  var phoneNumber: String?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,10 +31,10 @@ class RegisterScene: UIController, SuccessionOfImagesDelagate, FancyBoolDelegate
     acceptCtrl?.isHidden = true
     acceptCtrl?.delegate = self
     view.addSubview(acceptCtrl!)
-    self.cameraCtrl = CameraControl(frame: CGRect(x: centerWidth(width: 300), y: -300, width: 300, height: 300))
+    self.cameraCtrl = CameraControl(frame: CGRect(x: centerWidth(300), y: -300, width: 300, height: 300))
     self.cameraCtrl?.delegate = self
     view.addSubview(cameraCtrl!)
-    self.avatarControl = CircleAvatarControl(frame: CGRect(x: self.centerWidth(width: 300), y: self.view.frame.height * 0.1, width: 300, height: 300))
+    self.avatarControl = CircleAvatarControl(frame: CGRect(x: self.centerWidth(300), y: self.view.frame.height * 0.1, width: 300, height: 300))
     self.avatarControl?.isHidden = true
     view.addSubview(self.avatarControl!)
   }
@@ -45,18 +49,37 @@ class RegisterScene: UIController, SuccessionOfImagesDelagate, FancyBoolDelegate
     return button
   }
   
+  func addPhoneForm() {
+    let frame = CGRect(x: self.centerWidth(self.view.frame.width - 40), y: self.view.frame.height * 1.1, width: self.view.frame.width - 40, height: 250)
+    self.phoneForm.frame = frame
+    let avatar = CircleAvatarControl(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    avatar.setImage(image: self.avatarImage!)
+    avatar.setBorder(size: 2.0)
+    self.phoneForm.addSubview(avatar)
+    self.phoneCtrl = CollectPhoneNumberControl(frame: CGRect(x: 0, y: 50, width: frame.width, height: frame.height - 50))
+    self.phoneCtrl?.addCallback(callback: {text in self.phoneNumber = text; print("phone number: \(self.phoneNumber!)")})
+    self.phoneForm.addSubview(self.phoneCtrl!)
+    self.view.addSubview(self.phoneForm)
+  }
+  
   func showCameraView() {
     UIView.animate(withDuration: 0.5, animations: {
-      self.cameraCtrl?.frame = CGRect(x: self.centerWidth(width: 300), y: self.view.frame.height * 0.1, width: 300, height: 300)
+      self.cameraCtrl?.frame = CGRect(x: self.centerWidth(300), y: self.view.frame.height * 0.1, width: 300, height: 300)
     })
   }
   
   func hideAvatarView() {
     UIView.animate(withDuration: 0.5, animations: {
-      self.avatarControl?.frame = CGRect(x: self.centerWidth(width: 300), y: -300, width: 300, height: 300)
+      self.avatarControl?.frame = CGRect(x: self.centerWidth(300), y: -300, width: 300, height: 300)
     }, completion: {_ in
       self.avatarControl?.isHidden = true
-      self.avatarControl?.frame = CGRect(x: self.centerWidth(width: 300), y: self.view.frame.height * 0.1, width: 300, height: 300)
+      self.avatarControl?.frame = CGRect(x: self.centerWidth(300), y: self.view.frame.height * 0.1, width: 300, height: 300)
+    })
+  }
+  
+  func showPhoneCtrl() {
+    UIView.animate(withDuration: 0.5, animations: {
+      self.phoneForm.frame = CGRect(x: self.centerWidth(self.view.frame.width - 40), y: self.centerHeight(200), width: self.view.frame.width - 40, height: 250)
     })
   }
   
@@ -75,8 +98,9 @@ class RegisterScene: UIController, SuccessionOfImagesDelagate, FancyBoolDelegate
   func actionTaken(result: Bool) {
     self.acceptCtrl?.hideCtrl()
     if result {
-      let label = self.addStaticText(text: "Next Step", frame: CGRect(x: (view.frame.width / 2) - 150, y: (view.frame.height / 2) - 50, width: 300, height: 100))
-      self.view.addSubview(label)
+      self.addPhoneForm()
+      self.hideAvatarView()
+      self.showPhoneCtrl()
     } else {
       self.cameraCtrl?.initializeCamera()
       self.hideAvatarView()
@@ -88,9 +112,10 @@ class RegisterScene: UIController, SuccessionOfImagesDelagate, FancyBoolDelegate
   }
   
   func getImage(image: UIImage) {
+    self.avatarImage = image
     self.avatarControl?.setImage(image: image)
     self.avatarControl?.isHidden = false
     self.cameraCtrl?.removeFromSuperview()
-    self.cameraCtrl?.frame = CGRect(x: centerWidth(width: 300), y: -300, width: 300, height: 300)
+    self.cameraCtrl?.frame = CGRect(x: centerWidth(300), y: -300, width: 300, height: 300)
   }
 }

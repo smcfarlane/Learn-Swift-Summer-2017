@@ -18,11 +18,11 @@ class UIController : UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-  func centerWidth(width: CGFloat) -> CGFloat{
+  func centerWidth(_ width: CGFloat) -> CGFloat{
     return (view.frame.width / 2) - (width / 2)
   }
   
-  func centerHeight(height: CGFloat) -> CGFloat{
+  func centerHeight(_ height: CGFloat) -> CGFloat{
     return (view.frame.height / 2) - (height / 2)
   }
   

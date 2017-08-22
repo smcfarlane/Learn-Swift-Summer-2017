@@ -10,16 +10,17 @@ import UIKit
 
 class CircleAvatarControl: UIView {
   let imageView = UIImageView()
+  var borderWidth = CGFloat(10.0)
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     self.backgroundColor = UIColor.clear
     imageView.isHidden = true
+    imageView.clipsToBounds = true
+    imageView.layer.borderColor = UIColor.white.cgColor
     imageView.frame = self.bounds
     imageView.layer.cornerRadius = self.frame.width / 2
-    imageView.clipsToBounds = true
-    imageView.layer.borderWidth = 10.0
-    imageView.layer.borderColor = UIColor.white.cgColor
+    imageView.layer.borderWidth = borderWidth
     self.addSubview(imageView)
   }
   
@@ -29,11 +30,14 @@ class CircleAvatarControl: UIView {
   
   override func layoutSubviews() {
     super.layoutSubviews()
-    
   }
   
   func setImage(image: UIImage) {
     imageView.image = image
     imageView.isHidden = false
+  }
+  
+  func setBorder(size: CGFloat) {
+    imageView.layer.borderWidth = size
   }
 }

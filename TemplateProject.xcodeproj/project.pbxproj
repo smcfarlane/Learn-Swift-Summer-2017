@@ -59,6 +59,7 @@
 		7C4978B21F32C664006F6A72 /* CommonScreenPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4978B11F32C664006F6A72 /* CommonScreenPoints.swift */; };
 		7C6253AC1F300F06008D6608 /* LocationFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6253AB1F300F06008D6608 /* LocationFinderView.swift */; };
 		7C9B961E1F4295670077C421 /* CircleAvatarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9B961D1F4295670077C421 /* CircleAvatarControl.swift */; };
+		7CEFCD3F1F4BBD6500217FD9 /* CollectPhoneNumberControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEFCD3E1F4BBD6500217FD9 /* CollectPhoneNumberControl.swift */; };
 		7CF6D4521F3BFE310084740B /* FancyBoolControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6D4511F3BFE310084740B /* FancyBoolControl.swift */; };
 		7CF6D4541F3C0DE70084740B /* CameraControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6D4531F3C0DE70084740B /* CameraControl.swift */; };
 		8EFAF1C81F276CC600E07232 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EFAF1C71F276CC600E07232 /* AppDelegate.swift */; };
@@ -132,6 +133,7 @@
 		7C4978B11F32C664006F6A72 /* CommonScreenPoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonScreenPoints.swift; sourceTree = "<group>"; };
 		7C6253AB1F300F06008D6608 /* LocationFinderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFinderView.swift; sourceTree = "<group>"; };
 		7C9B961D1F4295670077C421 /* CircleAvatarControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleAvatarControl.swift; sourceTree = "<group>"; };
+		7CEFCD3E1F4BBD6500217FD9 /* CollectPhoneNumberControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectPhoneNumberControl.swift; sourceTree = "<group>"; };
 		7CF6D4511F3BFE310084740B /* FancyBoolControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyBoolControl.swift; sourceTree = "<group>"; };
 		7CF6D4531F3C0DE70084740B /* CameraControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraControl.swift; sourceTree = "<group>"; };
 		8EFAF1C41F276CC600E07232 /* TemplateProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TemplateProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 				7CF6D4511F3BFE310084740B /* FancyBoolControl.swift */,
 				7CF6D4531F3C0DE70084740B /* CameraControl.swift */,
 				7C9B961D1F4295670077C421 /* CircleAvatarControl.swift */,
+				7CEFCD3E1F4BBD6500217FD9 /* CollectPhoneNumberControl.swift */,
 			);
 			path = "Custom Controls";
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				7C6253AC1F300F06008D6608 /* LocationFinderView.swift in Sources */,
 				8EFAF1C81F276CC600E07232 /* AppDelegate.swift in Sources */,
 				8EFAF1E71F276D9A00E07232 /* APIController.swift in Sources */,
+				7CEFCD3F1F4BBD6500217FD9 /* CollectPhoneNumberControl.swift in Sources */,
 				7CF6D4521F3BFE310084740B /* FancyBoolControl.swift in Sources */,
 				7CF6D4541F3C0DE70084740B /* CameraControl.swift in Sources */,
 				7C4978B01F32B23A006F6A72 /* ChatScene.swift in Sources */,
